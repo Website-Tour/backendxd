@@ -1,0 +1,29 @@
+{
+    "review54":[
+        {
+            "tenuser": "Phan Thị A",
+            "rating": 3,
+            "cmt": "Tour không quá ấn tượng như mong đợi."
+        },
+        {
+            "tenuser": "Nguyễn Thị C",
+            "rating": 4,
+            "cmt": "Địa điểm đẹp, dịch vụ tốt."
+        },
+        {
+            "tenuser": "Nguyễn Xuân Đào",
+            "rating": 1,
+            "cmt": "tour xịn nhở"
+        },
+        {
+            "tenuser": "Nguyễn Xuân Đào",
+            "rating": 4,
+            "cmt": "xịn nha"
+        },
+        {
+            "tenuser": "Lê Trọng Vinh",
+            "rating": 3,
+            "cmt": "Tệ"
+        }
+    ]
+}
