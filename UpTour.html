@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Up Tour</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <style>
+    .ui-datepicker {
+        background-color: #fff; 
+    }
+    .ui-datepicker-calendar {
+        font-size: 14px; 
+        color: black; 
+    }
+    
+    .ui-datepicker-calendar tbody td {
+        padding: 8px;
+        color: black;
+    }
+    .ui-datepicker-calendar tbody td a{
+        color: black; 
+        text-decoration: none;
+    }
+</style>
+  
+</head>
+<body style = "background-color: rgba(201, 211, 202, 0.639);">
+    <div class="header" style = "background-color: seagreen;">
+        <script>
+            $(function(){
+                $(".header").load("header.php");
+            });
+        </script>
+
+    </div>
+    <div class="body">
+    <form action="process_tour_form.php" id = "tour-form" method = "POST">
+    <div class="body">
+        <div class="admin" style = "margin: 20px; background-color: white; padding: 20px">
+            <div class="container">
+                <h5>About Admin</h5>
+                
+                <div class="row" style = "padding-bottom: 10px;">
+                    
+                <div class="col-md-4" style = "padding-top: 10px;">
+                    <div class="input-group">
+                        <label for="admin-name" style = "margin-right: 5px">Name: </label>
+                        <input type="text" class="form-control" placeholder="Admin name..." required name = "ten">
+                      </div>
+                </div>
+                <div class="col-md-4" style = "padding-top: 10px;">
+                    <div class="input-group">
+                        <label for="admin-name" style = "margin-right: 5px">Phone number:  </label>
+                        <input type="text" class="form-control" placeholder="Phone number..." required name = "phone">
+                      </div>
+                </div>
+                <div class="col-md-4" style = "padding-top: 10px;">
+                    <div class="input-group">
+                        <label for="admin-name" style = "margin-right: 5px">Email:  </label>
+                        <input type="email" class="form-control" placeholder="Email..." required name = "email">
+                      </div>
+                </div>
+            
+            </div>
+            </div>
+        </div>
+        <div class="new"  style = "margin: 20px; background-color: white; padding: 20px">
+            <div class="container">
+                <h5>New Tour</h5>
+                <!-- <form action="process_tour_form.php" id = "tour-form" method = "POST"> -->
+                    <div class="row"  style = "padding-bottom: 10px;">
+                        <div class="col-md-6" style = "padding-top: 10px;">
+                            <div class="input-group">
+                                <label for="tour-name" style = "margin-right: 5px">Tên tour: </label>
+                                <input type="text" class="form-control" placeholder="Tên tour..." required name = "tentour">
+                              </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 10px;">
+                            <div class="input-group">
+                                <label for="area" style = "margin-right: 5px">Tên khu vực: </label>
+                                <select class="form-control" id="area"  required name = "area">
+                                    <option value="">Chọn khu vực</option>
+                                    <option value="North Viet Nam">Northern Vietnam</option>
+                                    <option value="Central Viet Nam">Central Vietnam</option>
+                                    <option value="South Viet Nam">Southern Vietnam</option>
+                                    <option value="Westside Viet Nam">Westside Vietnam</option>
+                                </select>
+                              </div>
+                        </div>
+                        
+                        <div class="col-md-6" style = "padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="tendiadiem" style = "margin-right: 5px">Tên tỉnh, thành phố: </label>
+                                <input type="text" class="form-control" placeholder="Tên tỉnh/thành phố, quốc gia" required name = "address">
+                              </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="limit" style = "margin-right: 5px">Giới hạn người: </label>
+                                <input type="text" class="form-control" placeholder="Số lượng người của tour" required name = "limit">
+                              </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="trong" style = "margin-right: 5px">Số lượng còn trống: </label>
+                                <input type="text" class="form-control" placeholder="Số lượng chỗ còn trống" required name = "unlimit">
+                              </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="tendiadiem" style = "margin-right: 5px">Giá tour: </label>
+                                <input type="text" class="form-control" placeholder="Giá tour" required name = "money">
+                              </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="departure-date" style="margin-right: 5px;">Ngày đi:</label>
+                                <input type="text" class="form-control" id="departure-date" placeholder="Ngày bắt đầu" required name = "start">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="departure-datev" style="margin-right: 5px;">Ngày về:</label>
+                                <input type="text" class="form-control" id="departure-datev" placeholder="Ngày kết thúc" required name = "end">
+                            </div>
+                        </div>
+
+                        <!--  -->
+                        
+                        <div class="col-md-6" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="tenchitiet" style="margin-right: 5px;">Tên chi tiết tour:</label>
+                                <input type="text" class="form-control" id="tenchitiet" placeholder="Tên chi tiết tour" required name = "tenchitiet">
+                            </div>
+                        </div>
+
+
+                        
+
+                        <div class="col-md-12" style = "padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="noidungchitiet" style = "margin-right: 5px">Nội dung chi tiết tour: </label>
+                                <textarea class="form-control" placeholder="Chi tiết tour" required name = "chitiet"></textarea>
+                              </div>
+                        </div>
+
+                        <div class="col-md-3" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ngay1" style="margin-right: 5px;">Ngày 1:</label>
+                                <input type="text" class="form-control" id="ngay1" placeholder="Ngày 1" required name = "ngay1">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" style="padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="imagengay1" style="margin-right: 5px;">Ảnh ngày 1:</label>
+                                <input type="text" class="form-control" id="imagengay1" required name="imagengay1" placeholder="Nhập link ảnh">
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-6" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ndngay1" style="margin-right: 5px;">Nội dung ngày 1:</label>
+                                <textarea class="form-control" id="ndngay1" placeholder="Nội dung ngày 1 " required name = "ndngay1"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ngay2" style="margin-right: 5px;">Ngày 2:</label>
+                                <input type="text" class="form-control" id="ngay2" placeholder="Ngày 2"  name = "ngay2">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" style="padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="imagengay2" style="margin-right: 5px;">Ảnh ngày 2:</label>
+                                <input type="text" class="form-control" id="imagengay2" name="imagengay2" placeholder="Nhập link ảnh">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ndngay2" style="margin-right: 5px;">Nội dung ngày 2:</label>
+                                <textarea class="form-control" id="ndngay2" placeholder="Nội dung ngày 2"  name = "ndngay2"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ngay3" style="margin-right: 5px;">Ngày 3:</label>
+                                <input type="text" class="form-control" id="ngay3" placeholder="Ngày 3"  name = "ngay3">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" style="padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="imagengay3" style="margin-right: 5px;">Ảnh ngày 3:</label>
+                                <input type="text" class="form-control" id="imagengay3" name="imagengay3" placeholder="Nhập link ảnh">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ndngay3" style="margin-right: 5px;">Nội dung ngày 3:</label>
+                                <textarea class="form-control" id="ndngay3" placeholder="Nội dung ngày 3"  name = "ndngay3"></textarea>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-3" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ngay4" style="margin-right: 5px;">Ngày 4:</label>
+                                <input type="text" class="form-control" id="ngay4" placeholder="Ngày 4"  name = "ngay4">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" style="padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="imagengay4" style="margin-right: 5px;">Ảnh ngày 4:</label>
+                                <input type="text" class="form-control" id="imagengay4" name="imagengay4" placeholder="Nhập link ảnh">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ndnga4" style="margin-right: 5px;">Nội dung ngày 4:</label>
+                                <textarea class="form-control" id="ndngay4" placeholder="Nội dung ngày 4"  name = "ndngay4"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ngay5" style="margin-right: 5px;">Ngày 5:</label>
+                                <input type="text" class="form-control" id="ngay5" placeholder="Ngày 5"  name = "ngay5">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" style="padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="imagengay5" style="margin-right: 5px;">Ảnh ngày 5:</label>
+                                <input type="text" class="form-control" id="imagengay5" name="imagengay5" placeholder="Nhập link ảnh">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ndngay5" style="margin-right: 5px;">Nội dung ngày 5:</label>
+                                <textarea class="form-control" id="ndngay5" placeholder="Nội dung ngày 5"  name = "ndngay5"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ngay6" style="margin-right: 5px;">Ngày 6:</label>
+                                <input type="text" class="form-control" id="ngay6" placeholder="Ngày 6"  name = "ngay6">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" style="padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="imagengay6" style="margin-right: 5px;">Ảnh ngày 6:</label>
+                                <input type="text" class="form-control" id="imagengay6" name="imagengay6" placeholder="Nhập link ảnh">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ndngay6" style="margin-right: 5px;">Nội dung ngày 6:</label>
+                                <textarea class="form-control" id="ndngay1" placeholder="Nội dung ngày 6"  name = "ndngay6"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ngay7" style="margin-right: 5px;">Ngày 7:</label>
+                                <input type="text" class="form-control" id="ngay7" placeholder="Ngày 7"  name = "ngay7">
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-md-3" style="padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="imagengay7" style="margin-right: 5px;">Ảnh ngày 7:</label>
+                                <input type="text" class="form-control" id="imagengay7" name="imagengay7" placeholder="Nhập link ảnh">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;" >
+                            <div class="input-group">
+                                <label for="ndngay7" style="margin-right: 5px;">Nội dung ngày 7:</label>
+                                <textarea class="form-control" id="ndngay7" placeholder="Nội dung ngày 7"  name = "ndngay7"></textarea>
+                            </div>
+                        </div>
+
+
+                        <!--  -->
+
+
+                        <div class="col-md-6" style = "padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="image" style="margin-right: 5px;">Nhập ảnh bìa lên:</label>
+                                <input type="text" class="form-control" id="image" placeholder="Nhập link ảnh" required name ="image">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style = "padding-top: 20px;">
+                            <div class="input-group">
+                                <label for="images" style="margin-right: 5px;">Nhập các ảnh khác(nếu có) lên:</label>
+                                <input type="text" class="form-control" id="images"  placeholder="Nhập link các ảnh, thêm dấu phẩy vào giữa các link" name = "images">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <button type="submit" class="btn btn-danger" id="submit-btn">Submit</button>
+                </form>
+            </div>
+    <!-- </div> -->
+</form>
+</body>
+
+<script>
+
+    $(document).ready(function() {
+        $('#submit-btn').on('click', function() {
+            var allFieldsFilled = true;
+            $('input[required], select[required], textarea[required]').each(function() {
+                if (!$(this).val()) {
+                    allFieldsFilled = false;
+                    return false;
+                }
+            });
+            
+            // Nếu mọi trường đã được điền đầy đủ, gửi biểu mẫu
+            if (allFieldsFilled) {
+                $(this).prop('disabled', true); 
+                $('#tour-form').submit(); 
+            } else {
+                alert("Vui lòng điền đầy đủ thông tin.");
+            }
+        });
+    });
+    
+
+
+    $(function() {
+        $("#departure-date").datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+        $("#return-date").datepicker({
+            dateFormat: "yy-mm-dd" 
+        });
+    });
+
+    $(function() {
+        $("#departure-datev").datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+        $("#return-datev").datepicker({
+            dateFormat: "yy-mm-dd" 
+        });
+    });
+    
+</script>
+
+    
+</html>
